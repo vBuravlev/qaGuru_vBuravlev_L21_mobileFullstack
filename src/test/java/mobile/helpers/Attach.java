@@ -48,19 +48,27 @@ public class Attach extends BrowserStack {
                 + "' type='video/mp4'></video></body></html>";
     }
 
-    public static void addVideo(String sessionId) throws InterruptedException {
+    public static void addVideo(String sessionId) {
        SelenoidConfig config = ConfigFactory.create(SelenoidConfig.class, System.getProperties());
         URL videoUrl = DriverUtils.getVideoUrl(sessionId);
         if (videoUrl != null) {
             InputStream videoInputStream = null;
-            sleep(5000);
+            try {
+                sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
             for (int i = 0; i < 10; i++) {
                 try {
                     videoInputStream = videoUrl.openStream();
                     break;
                 } catch (FileNotFoundException e) {
-                    sleep(5000);
+                    try {
+                        sleep(5000);
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
                 } catch (IOException e) {
                     LOGGER.warn("[ALLURE VIDEO ATTACHMENT ERROR] Cant attach allure video, {}", videoUrl);
                     e.printStackTrace();

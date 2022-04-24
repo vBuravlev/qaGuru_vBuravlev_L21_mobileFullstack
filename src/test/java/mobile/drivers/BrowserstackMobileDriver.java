@@ -8,29 +8,41 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDateTime;
 
+
 public class BrowserstackMobileDriver extends BrowserStack implements WebDriverProvider {
-    public static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
+    static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
 
     @Override
-    public WebDriver createDriver(Capabilities capabilities) {
+    public WebDriver createDriver(Capabilities caps) {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
-        mutableCapabilities.merge(capabilities);
-
+        mutableCapabilities.merge(caps);
+            // Set your access credentials
+        mutableCapabilities.setCapability("browserstack.appium_version", "1.22.0");
         mutableCapabilities.setCapability("browserstack.user", config.userName());
         mutableCapabilities.setCapability("browserstack.key", config.accessKey());
+
+            // Set URL of the application under test
         mutableCapabilities.setCapability("app", config.appUrl());
+
+            // Specify device and os_version for testing
         mutableCapabilities.setCapability("device", config.device());
         mutableCapabilities.setCapability("os_version", config.os_version());
+
+            // Set other BrowserStack capabilities
         mutableCapabilities.setCapability("project", config.projectName());
         mutableCapabilities.setCapability("build", config.buildName());
         mutableCapabilities.setCapability("name", config.testName()+" "+ LocalDateTime.now());
-        mutableCapabilities.setCapability("browserstack.appium_version", config.appium_version());
 
-        return new AndroidDriver(getBrowserstackUrl(), mutableCapabilities);
+            return new RemoteWebDriver(getBrowserstackUrl(), mutableCapabilities);
+
     }
 
     public static URL getBrowserstackUrl() {
