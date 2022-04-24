@@ -38,9 +38,8 @@ public class RealMobileDriver implements WebDriverProvider {
     }
 
     private File getApp() {
-        String appPath = "src/test/resources/apk/"+config.appFileName();
 
-        File application = new File(appPath);
+        File application = new File(config.appPath());
         if (!application.exists()) {
             try (InputStream in = new URL(config.appUrl()).openStream()) {
                 copyInputStreamToFile(in, application);

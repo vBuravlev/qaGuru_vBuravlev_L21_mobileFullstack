@@ -27,7 +27,7 @@ public class BrowserstackMobileDriver extends BrowserStack implements WebDriverP
         mutableCapabilities.setCapability("os_version", config.os_version());
         mutableCapabilities.setCapability("project", config.projectName());
         mutableCapabilities.setCapability("build", config.buildName());
-        mutableCapabilities.setCapability("name", config.testName()+"_"+ LocalDateTime.now());
+        mutableCapabilities.setCapability("name", config.testName()+" "+ LocalDateTime.now());
         mutableCapabilities.setCapability("browserstack.appium_version", config.appium_version());
 
         return new AndroidDriver(getBrowserstackUrl(), mutableCapabilities);
@@ -35,7 +35,7 @@ public class BrowserstackMobileDriver extends BrowserStack implements WebDriverP
 
     public static URL getBrowserstackUrl() {
         try {
-            return new URL(config.url());
+            return new URL(config.appUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

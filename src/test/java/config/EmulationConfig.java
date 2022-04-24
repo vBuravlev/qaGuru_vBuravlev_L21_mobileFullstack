@@ -14,11 +14,10 @@ public interface EmulationConfig extends Config {
 
     @Key("appFileName")
     String appFileName();
-    //
+
 
     @Key("appUrl")
     String appUrl();
-    //"https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk?raw=true"
 
     @Key("platformName")
     String platformName();
@@ -31,18 +30,16 @@ public interface EmulationConfig extends Config {
 
     @Key("appPackage")
     String appPackage();
-    //"org.wikipedia.main.MainActivity"
+
 
     @Key("appActivity")
     String appActivity();
-    //"org.wikipedia.alpha"
 
     @Key("local")
     String local();
-    //"en"
 
     @Key("language")
     String language();
-    //"en"
+
 
 }

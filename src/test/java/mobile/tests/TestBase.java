@@ -61,27 +61,7 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         closeWebDriver();
+//       Attach.attachVideo(sessionId);
 
-//        switch (deviceHost) {
-//            case "browserstack":
-//                Attach.attachVideo(sessionId);
-//                break;
-//            case "selenoid":
-//                Configuration.browser = SelenoidMobileDriver.class.getName();
-//                break;
-//            case "emulation":
-//                Configuration.browser = EmulationMobileDriver.class.getName();
-//                break;
-//            case "real":
-//                Configuration.browser = RealMobileDriver.class.getName();
-//                break;
-//            default:
-//                throw new IllegalArgumentException("Error in deviceHost=" + deviceHost +
-//                        ". You must run with parameter -DdeviceHost=browserstack or selenoid or emulator or real");
-//        }
-
-//        if(deviceHost.equals("browserstack")) {
-//            Attach.attachVideo(sessionId);
-//        }
     }
 }
