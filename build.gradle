@@ -19,7 +19,7 @@ def allureVersion = "2.17.2",
     selenideVersion = "6.4.0",
     junitVersion = "5.8.2",
     slf4jVersion = "1.7.32",
-    appiumVersion = "8.6.0"
+    appiumVersion = "8.0.0"
 
 allure {
     report {
