@@ -1,6 +1,7 @@
 package mobile.tests.local;
 
 import com.codeborne.selenide.Condition;
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.MobileBy;
 import mobile.tests.TestBase;
 import org.junit.jupiter.api.*;
@@ -18,19 +19,19 @@ public class GettingStartedTest extends TestBase {
     void startedScreensTest() {
 
         step("Открыть меню", () ->
-                $(MobileBy.id("org.wikipedia.alpha:id/menu_overflow_button")).click()
+                $(AppiumBy.id("org.wikipedia.alpha:id/menu_overflow_button")).click()
         );
 
         step("Нажать на логин", () ->
-                $(MobileBy.id("org.wikipedia.alpha:id/explore_overflow_account_name")).click()
+                $(AppiumBy.id("org.wikipedia.alpha:id/explore_overflow_account_name")).click()
         );
 
         step("Проверяем, что текст лого виден", () -> {
-            $(MobileBy.xpath("//*[@text='Log in to Wikipedia']")).should(Condition.visible);
+            $(AppiumBy.xpath("//*[@text='Log in to Wikipedia']")).should(Condition.visible);
         });
 
         step("Проверяем текст кнопки", () -> {
-            $(MobileBy.id("org.wikipedia.alpha:id/login_button")).shouldHave(Condition.text("Log in"));
+            $(AppiumBy.id("org.wikipedia.alpha:id/login_button")).shouldHave(Condition.text("Log in"));
         });
     }
 
