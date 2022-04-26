@@ -4,7 +4,6 @@ import com.codeborne.selenide.Selenide;
 import config.SelenoidConfig;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
-import mobile.drivers.DriverUtils;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
