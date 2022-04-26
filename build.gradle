@@ -26,7 +26,6 @@ allure {
         version.set(allureVersion)
     }
     adapter {
-        autoconfigure.set(true)
         aspectjWeaver.set(true)
         frameworks {
             junit5 {
@@ -62,36 +61,4 @@ test {
             exceptionFormat "short"
         }
     }
-}
-
-task browserStack(type: Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform {
-        includeTags 'browserStack'
-    }
-    systemProperty "deviceHost", "browserstack"
-}
-
-task selenoid(type: Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform {
-        includeTags 'local'
-    }
-    systemProperty "deviceHost", "selenoid"
-}
-
-task emulation(type: Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform {
-        includeTags 'local'
-    }
-    systemProperty "deviceHost", "emulation"
-}
-
-task real(type: Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform {
-        includeTags 'local'
-    }
-    systemProperty "deviceHost", "real"
 }

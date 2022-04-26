@@ -14,7 +14,6 @@ import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 
 
-@Tag("browserStack")
 public class BrowserStackAndroidSelenideTests extends TestBase {
 
     @Test
