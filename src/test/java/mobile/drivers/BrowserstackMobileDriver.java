@@ -24,12 +24,11 @@ public class BrowserstackMobileDriver extends BrowserStack implements WebDriverP
     public WebDriver createDriver(Capabilities caps) {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(caps);
+
             // Set your access credentials
         mutableCapabilities.setCapability("browserstack.appium_version", "1.22.0");
         mutableCapabilities.setCapability("browserstack.user", config.userName());
         mutableCapabilities.setCapability("browserstack.key", config.accessKey());
-
-            // Set URL of the application under test
         mutableCapabilities.setCapability("app", config.appUrl());
 
             // Specify device and os_version for testing

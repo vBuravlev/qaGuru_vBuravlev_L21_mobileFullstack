@@ -11,9 +11,8 @@ public interface EmulationConfig extends Config {
     @Key("url")
     String url();
 
-    @Key("appFileName")
-    String appFileName();
-
+    @Key("appPath")
+    String appPath();
 
     @Key("appUrl")
     String appUrl();
@@ -30,6 +29,8 @@ public interface EmulationConfig extends Config {
     @Key("appPackage")
     String appPackage();
 
+    @Key("appiumUrl")
+    String appiumUrl();
 
     @Key("appActivity")
     String appActivity();

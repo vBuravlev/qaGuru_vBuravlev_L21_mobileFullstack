@@ -41,9 +41,8 @@ public class EmulationMobileDriver implements WebDriverProvider {
     }
 
     private File getApp() {
-        String appPath = "src/test/resources/apk/"+config.appFileName();
 
-        File application = new File(appPath);
+        File application = new File(config.appPath());
         if (!application.exists()) {
             try (InputStream in = new URL(config.appUrl()).openStream()) {
                 copyInputStreamToFile(in, application);
@@ -57,7 +56,7 @@ public class EmulationMobileDriver implements WebDriverProvider {
 
     public static URL getAppiumUrl() {
         try {
-            return new URL("http://127.0.0.1:4723/wd/hub");
+            return new URL(config.appiumUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

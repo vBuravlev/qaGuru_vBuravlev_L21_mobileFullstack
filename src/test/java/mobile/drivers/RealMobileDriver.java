@@ -53,7 +53,7 @@ public class RealMobileDriver implements WebDriverProvider {
 
     public static URL getAppiumUrl() {
         try {
-            return new URL("http://127.0.0.1:4723/wd/hub");
+            return new URL(config.appiumUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

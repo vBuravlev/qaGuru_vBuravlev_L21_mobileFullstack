@@ -23,6 +23,9 @@ public interface RealConfig extends Config {
     @Key("deviceName")
     String deviceName();
 
+    @Key("appiumUrl")
+    String appiumUrl();
+
     @Key("appPackage")
     String appPackage();
 
