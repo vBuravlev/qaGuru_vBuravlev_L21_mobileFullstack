@@ -2,6 +2,8 @@ package mobile.tests;
 
 import com.codeborne.selenide.Configuration;
 import config.SetConfig;
+import mobile.drivers.BrowserstackMobileDriver;
+import mobile.drivers.LocalMobileDriver;
 import mobile.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -19,8 +21,24 @@ public class TestBase {
     @BeforeAll
     public static void setup() {
         Configuration.browserSize = null;
-        SetConfig.setDeviceHost();
+
+        switch (System.getProperty("device")) {
+            case "emulation":
+                Configuration.browser = LocalMobileDriver.class.getName();
+                break;
+            case "browserstack":
+                Configuration.browser = BrowserstackMobileDriver.class.getName();
+                break;
+            case "real":
+                break;
+            case "selenoid":
+                //реализовать позже
+                break;
+            default:
+                throw new IllegalArgumentException("Ups, sorry, you chose an invalid option. You need to choose between real, emulator, browserstack, selenoid");
+        }
     }
+
 
     @BeforeEach
     public void startDriver() {

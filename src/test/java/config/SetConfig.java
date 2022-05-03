@@ -1,32 +1,11 @@
 package config;
 
-import com.codeborne.selenide.Configuration;
-import mobile.drivers.BrowserstackMobileDriver;
-import mobile.drivers.LocalMobileDriver;
 import org.aeonbits.owner.ConfigFactory;
 
 
 public class SetConfig {
     public static ConfigMobile config = ConfigFactory
             .create(ConfigMobile.class, System.getProperties());
-
-    public static void setDeviceHost() {
-        switch (System.getProperty("device")) {
-            case "emulation":
-                Configuration.browser = LocalMobileDriver.class.getName();
-                break;
-            case "browserstack":
-                Configuration.browser = BrowserstackMobileDriver.class.getName();
-                break;
-            case "real":
-                break;
-            case "selenoid":
-                //реализовать позже
-                break;
-            default:
-                throw new IllegalArgumentException("Ups, sorry, you chose an invalid option. You need to choose between real, emulator, browserstack, selenoid");
-        }
-    }
 
     public static String getUser() {
         return config.user();
