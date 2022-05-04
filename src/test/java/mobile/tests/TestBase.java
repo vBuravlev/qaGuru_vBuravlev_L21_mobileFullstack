@@ -27,10 +27,11 @@ public class TestBase {
             case "emulation":
                 Configuration.browser = LocalMobileDriver.class.getName();
                 break;
+            case "real":
+                Configuration.browser = LocalMobileDriver.class.getName();
+                break;
             case "browserstack":
                 Configuration.browser = BrowserstackMobileDriver.class.getName();
-                break;
-            case "real":
                 break;
             case "selenoid":
                 //реализовать позже
