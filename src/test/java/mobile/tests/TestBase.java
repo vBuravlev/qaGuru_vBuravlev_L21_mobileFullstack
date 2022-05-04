@@ -14,6 +14,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
+
 import static mobile.helpers.Attach.getSessionId;
 
 public class TestBase {
@@ -37,6 +38,7 @@ public class TestBase {
             default:
                 throw new IllegalArgumentException("Ups, sorry, you chose an invalid option. You need to choose between real, emulator, browserstack, selenoid");
         }
+
     }
 
 
