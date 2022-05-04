@@ -13,7 +13,6 @@ import static io.qameta.allure.Allure.step;
 public class MobileTest extends TestBase {
 
     @Test
-    @Tag("selenide")
     void searchTest() {
         step("First onboarding page", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView"))
