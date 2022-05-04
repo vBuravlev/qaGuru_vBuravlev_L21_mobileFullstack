@@ -50,12 +50,13 @@ public class TestBase {
 
     @AfterEach
     public void afterEach() {
+        String sessionId = getSessionId();
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         closeWebDriver();
         switch (System.getProperty("device")) {
             case "browserstack":
-                Attach.addVideo(getSessionId());
+                Attach.addVideo(sessionId);
                 break;
             case "selenoid":
                 // дописать реализацию
