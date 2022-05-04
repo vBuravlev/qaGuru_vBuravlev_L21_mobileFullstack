@@ -1,17 +1,17 @@
 # Мобильная автоматизация тестирования Java+Appium
 
-## Видеоотчет прохождения теста на BrowserStack
+## <img width="4%" title="BrowserStack" src="src/test/resources/media/bStack.png"> Видеоотчет прохождения теста на BrowserStack 
 К каждому тесту в отчете прилагается видео.
-<p align="center">
-  <img title="Emulation video" src="media/BrowserStack.gif">
+<p align="left">
+  <img title="Emulation video" src="src/test/resources/media/BrowserStack.gif" width="400" height="500">
 </p>
 
 Пример отчета [BrowserStack](https://app-automate.browserstack.com/builds/24b289c72cfb524a615158210ef883ff2b97cf11/sessions/3e2600e31475600b0d45416d0cabc7b8d8bfa11f?auth_token=2bdeb033605fe5cb997c1bb117345a56996bb6cab4ba10f5dde0580c79858bfd)
 
-## Видеоотчет прохождения теста на Emulator
+## <img width="5%" title="Appium" src="src/test/resources/media/Appium.png"> Видеоотчет прохождения теста на Emulator
 К каждому тесту в отчете прилагается видео.
-<p align="center">
-  <img title="Emulation video" src="media/Emulation.gif">
+<p align="left">
+  <img title="Emulation video" src="src/test/resources/media/Emulation.gif" width="250" height="500">
 </p>
 
 
@@ -20,7 +20,7 @@
 ```bash
 ./gradlew clean selenide_android_test -Ddevice=emulation
 ```
-### Конфигурационный файл emulation.properties
+## Конфигурационный файл emulation.properties
 url=http://localhost:4723/wd/hub
 appFileName=app-alpha-universal-release.apk
 ....
@@ -52,7 +52,7 @@ appFileName=app-alpha-universal-release.apk
 ./gradlew clean selenide_android_test -Ddevice=browserstack
 ```
 
-### Конфигурационный файл browserstack.properties
+## Конфигурационный файл browserstack.properties
 userName=testtesttesttest_TajXhK
 accessKey=91v3WYYFHiexisvhqgR7
 ...
@@ -78,13 +78,14 @@ accessKey=91v3WYYFHiexisvhqgR7
 ><code>testName</code> - наименование теста (_наприме - <code>Test 1</code>_).
 
 
+
 ### Запуск тестов на реальном девайсе
 
 ```bash
 ./gradlew clean selenide_android_test -Ddevice=real
 ```
 
-### Конфигурационный файл real.properties
+## Конфигурационный файл real.properties
 deviceName=Pixel_4_API_30
 appFileName=app-alpha-universal-release.apk
 ....
@@ -108,16 +109,6 @@ appFileName=app-alpha-universal-release.apk
 ><code>language</code> - язык для приложения (_наприме - <code>en</code>_).
 >
 > <code>url</code> – адрес Allure Serve на локальной машине с портом (_например - <code>http://localhost:4723/wd/hub</code>_).
-
-url=http://localhost:4723/wd/hub
-appFileName=app-alpha-universal-release.apk
-app=https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk?raw=true
-platformName=Android
-deviceName=59b468650412
-appPackage=org.wikipedia.alpha
-appActivity=org.wikipedia.main.MainActivity
-locale=en
-language=en
 
 
 ### Запуск тестов через Selenoid
